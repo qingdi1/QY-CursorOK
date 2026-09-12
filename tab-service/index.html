@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TAB 服务 | 青云currsor小助手</title>
+  <link rel="icon" href="../assets/logo.svg" />
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="" />青云currsor小助手</a>
+      <nav class="nav">
+        <a href="../index.html">快速开始</a>
+        <a href="../installation/">安装指南</a>
+        <a href="../model-configuration/">模型配置</a>
+        <a class="active" href="./index.html">TAB 服务</a>
+        <a href="../faq/">常见问题</a>
+        <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">下载</a>
+      </nav>
+    </header>
+    <h1>TAB 服务</h1>
+    <p class="lead">选择 Cursor Tab 补全接口的连接方式。Tab 补全不走模型通道，而是由单独的 Tab 服务处理。</p>
+    <img class="shot" src="../assets/tab-settings.png" alt="系统设置中的 TAB 设置" />
+
+    <h2 id="两种模式">当前版本提供的模式</h2>
+    <h3>直连（默认）</h3>
+    <p>直接使用你在 Cursor 客户端中登录账号的官方 Tab 服务。适合账号本身有官方额度的用户。青云currsor小助手默认使用该模式。</p>
+    <h3>自定义</h3>
+    <p>自行部署 TAB 服务，然后在 <strong>TAB 服务地址</strong> 中填入你的服务地址。原接口路径会追加到该地址之后。</p>
+    <div class="note">本二改版本已移除原作者公益 TAB 服务。模型对话推荐走 <a href="https://api.qinggekeji.top">青云聚汇</a>；TAB 补全仍建议使用官方直连。</div>
+    <p>修改 TAB 设置后，建议重启 Cursor 并新开一个对话，确保连接方式生效。</p>
+    <p class="footer">本页内容改写自官方 Cursor Byok TAB 文档，截图已改为本仓库静态资源，并按当前二改功能更新。</p>
+  </div>
+</body>
+</html>

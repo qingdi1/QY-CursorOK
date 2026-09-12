@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>模型配置 | 青云currsor小助手</title>
+  <link rel="icon" href="../assets/logo.svg" />
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="" />青云currsor小助手</a>
+      <nav class="nav">
+        <a href="../index.html">快速开始</a>
+        <a href="../installation/">安装指南</a>
+        <a class="active" href="./index.html">模型配置</a>
+        <a href="../tab-service/">TAB 服务</a>
+        <a href="../faq/">常见问题</a>
+        <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">下载</a>
+      </nav>
+    </header>
+    <h1>模型配置</h1>
+    <p class="lead">配置模型协议、服务地址、凭据与生成参数。每个模型配置都是一个独立的上游通道。</p>
+    <img class="shot" src="../assets/model-edit.png" alt="编辑模型弹窗" />
+
+    <div class="note">推荐先点常用预设中的 <strong>青云聚汇</strong>。OpenAI 与 Anthropic 协议都可使用 <code>https://api.qinggekeji.top</code>，然后在 <a href="https://api.qinggekeji.top">青云聚汇控制台</a> 获取 API Key。</div>
+
+    <h2 id="如何选择类型与协议">如何选择类型与协议</h2>
+    <table>
+      <thead><tr><th>模型系列</th><th>模型类型</th><th>请求协议</th></tr></thead>
+      <tbody>
+        <tr><td>Claude 系列</td><td>Anthropic</td><td>Messages API</td></tr>
+        <tr><td>GPT / OpenAI 系列</td><td>OpenAI</td><td>Responses API</td></tr>
+        <tr><td>其他所有模型</td><td>OpenAI</td><td>Chat Completions API</td></tr>
+      </tbody>
+    </table>
+    <div class="warn">GPT 系列务必用 Responses API。走 Chat Completions 会丢失提示词缓存，速度和费用都会明显变差。</div>
+
+    <h2 id="必填字段">必填字段</h2>
+    <h3>模型类型</h3>
+    <ul>
+      <li><strong>OpenAI</strong>：支持 Responses API 和 Chat Completions API。</li>
+      <li><strong>Anthropic</strong>：支持 Messages API 兼容服务。</li>
+    </ul>
+    <h3>请求协议</h3>
+    <p>OpenAI 类型需要继续选择 Responses API 或 Chat Completions API。该选项决定请求和响应格式，不会单独改变你填写的服务地址。</p>
+    <h3>服务器地址</h3>
+    <p>可以填写服务商的基础地址，也可以选择使用完整请求 URL。使用基础地址时，应用会根据协议追加标准端点路径；使用完整请求 URL 时会原样使用该地址。优先使用界面中的常用服务商预设。</p>
+    <h3>API Key</h3>
+    <p>填写上游服务要求的访问密钥。密钥保存在本机，用于发送模型请求。</p>
+    <h3>模型名称</h3>
+    <p>填写服务商接口接受的模型标识。你也可以点击 <strong>获取模型</strong> 读取接口返回的模型列表。</p>
+
+    <h2 id="展示信息">展示信息</h2>
+    <ul>
+      <li><strong>显示名称</strong>：Cursor 模型列表中看到的名称，不会改变发送给上游的模型标识。</li>
+      <li><strong>备注</strong>：显示在 Cursor 的模型说明中。</li>
+    </ul>
+
+    <h2 id="可选参数">可选参数</h2>
+    <p>按模型能力填写上下文窗口 Token、最大输出 Token、推理强度或思考强度、自定义 Headers，以及 OpenAI 或 Anthropic 额外参数。自定义 Headers 和额外参数必须是 JSON 对象，只添加服务商明确支持的字段。</p>
+
+    <h2 id="测试配置">测试配置</h2>
+    <p>保存后运行 <strong>测试</strong>。结果会显示首字延迟、生成速度、总耗时和模型输出，用于确认地址、协议、API Key、模型标识和流式响应都正常。测试通过后再前往 Cursor 使用该模型。</p>
+    <p class="footer">本页内容改写自官方 Cursor Byok 模型配置文档，截图已改为本仓库静态资源。</p>
+  </div>
+</body>
+</html>

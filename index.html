@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>快速开始 | 青云currsor小助手</title>
+  <meta name="description" content="安装青云currsor小助手，并让 Cursor 使用你自己的模型 API。" />
+  <link rel="icon" href="./assets/logo.svg" />
+  <link rel="stylesheet" href="./assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./index.html"><img src="./assets/logo.svg" alt="" />青云currsor小助手</a>
+      <nav class="nav">
+        <a class="active" href="./index.html">快速开始</a>
+        <a href="./installation/">安装指南</a>
+        <a href="./model-configuration/">模型配置</a>
+        <a href="./tab-service/">TAB 服务</a>
+        <a href="./faq/">常见问题</a>
+        <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">下载</a>
+      </nav>
+    </header>
+
+    <h1>快速开始</h1>
+    <p class="lead">安装青云currsor小助手，并让 Cursor 使用你自己的模型 API。本教程基于官方 Cursor Byok 文档改写，资源已全部托管在本仓库。</p>
+
+    <div class="note">青云currsor小助手是独立项目，基于 CursorOK 助手二改，与 Cursor 及其开发者没有关联。软件本身免费，但模型服务商可能按用量收费。推荐使用 <a href="https://api.qinggekeji.top">青云聚汇</a> 中转站接入模型服务。</div>
+    <div class="warn"><strong>首次升级或配置后必须重启 Cursor，并新建对话。</strong>现有对话不会加载新的连接配置，继续使用可能提示“未登录”、无法看到模型，或出现 <code>An unexpected error occurred</code>。</div>
+
+    <h2 id="安装与配置">安装与配置</h2>
+    <h3 id="更新-cursor">更新 Cursor</h3>
+    <p>从 <a href="https://cursor.com">cursor.com</a> 下载官方最新版 Cursor，直接覆盖安装，保持客户端为最新版本。</p>
+
+    <h3 id="下载并启动">下载并启动青云currsor小助手</h3>
+    <p>从 <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">GitHub Releases</a> 下载与你操作系统对应的最新版本，然后启动青云currsor小助手。</p>
+
+    <h3 id="初始化并配置模型">初始化并配置模型</h3>
+    <p>打开 <strong>Cursor 配置</strong>，按界面提示初始化本地 CA，然后添加模型。可直接选择常用预设里的 <strong>青云聚汇</strong>，填写 <code>https://api.qinggekeji.top</code>、API Key 和模型名称，并运行连通性测试。</p>
+    <img class="shot" src="./assets/cursor-config.png" alt="Cursor 配置页面" />
+    <p>不同模型如何选择类型与协议，见 <a href="./model-configuration/">模型配置</a>。</p>
+
+    <h3 id="重启-cursor">首次升级或配置后重启 Cursor</h3>
+    <p>首次升级 Cursor 或首次配置模型后，必须完全退出 Cursor 并重新启动一次。仅关闭窗口或继续使用当前对话，都不会加载新的连接配置。</p>
+
+    <h3 id="新建对话">新建对话并选择模型</h3>
+    <p>Cursor 重启完成后，点击新建对话，再从模型列表中选择你刚配置的模型（不要选 Auto）。请勿继续使用配置前已经打开的对话。</p>
+
+    <h2 id="与官方账号并存">与官方账号并存</h2>
+    <ul>
+      <li>直接在 Cursor 中登录你自己的账号。如果之前用过旧版生成的 fake 账户，先退出它，再登录自己的账号。</li>
+      <li>账号有官方额度时，官方模型和本地模型可以随时切换混用。</li>
+      <li><strong>Auto 走的是官方模型</strong>：账号没有额度时选 Auto 会报错，请手动选择你配置的模型。</li>
+      <li>插件、代码库索引等 Cursor 功能都可以正常使用。</li>
+    </ul>
+
+    <h2 id="接下来">接下来</h2>
+    <div class="grid">
+      <a class="card" href="./installation/"><strong>安装指南</strong><span>下载、初始化和首次运行。</span></a>
+      <a class="card" href="./model-configuration/"><strong>模型配置</strong><span>选择协议并填写上游模型参数。</span></a>
+      <a class="card" href="./tab-service/"><strong>TAB 服务</strong><span>选择 Cursor Tab 补全接口的连接方式。</span></a>
+      <a class="card" href="./faq/"><strong>常见问题</strong><span>回答常见的证书、连接和模型配置问题。</span></a>
+    </div>
+
+    <h2 id="数据如何流转">数据如何流转</h2>
+    <pre>Cursor 客户端
+    │  Agent 请求与工具结果
+    ▼
+青云currsor小助手本地服务
+    │  OpenAI / Anthropic 兼容请求
+    ▼
+青云聚汇或其他模型 API</pre>
+    <p>API Key、模型配置和应用设置保存在本机。模型请求仍会发送到你选择的上游服务商。</p>
+    <p><a class="btn" href="https://api.qinggekeji.top">打开青云聚汇控制台</a></p>
+    <p class="footer">本页内容改写自官方 Cursor Byok 教程，截图与页面资源已改为本仓库静态托管。</p>
+  </div>
+</body>
+</html>
