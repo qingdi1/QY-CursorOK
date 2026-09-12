@@ -17,8 +17,10 @@
     line-height: 1.55;
   }
 
-  .action {
-    justify-self: start;
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-top: 6px;
   }
 }

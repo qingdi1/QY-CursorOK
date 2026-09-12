@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>安装指南 | 青云currsor小助手</title>
+  <link rel="icon" href="../assets/logo.svg" />
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="" />青云currsor小助手</a>
+      <nav class="nav">
+        <a href="../index.html">快速开始</a>
+        <a class="active" href="./index.html">安装指南</a>
+        <a href="../model-configuration/">模型配置</a>
+        <a href="../tab-service/">TAB 服务</a>
+        <a href="../faq/">常见问题</a>
+        <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">下载</a>
+      </nav>
+    </header>
+    <h1>安装指南</h1>
+    <p class="lead">下载青云currsor小助手，完成本地初始化并验证运行状态。</p>
+
+    <h2 id="下载应用">下载应用</h2>
+    <p>前往 <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">最新版本页面</a>，下载适用于 macOS、Windows 或 Linux 的安装包。优先使用最新正式版本。</p>
+
+    <h2 id="首次启动">首次启动</h2>
+    <h3>打开 Cursor 配置</h3>
+    <p>启动应用后进入 <strong>Cursor 配置</strong>。如果本地 CA 尚未初始化，页面会显示初始化入口。</p>
+    <h3>初始化本地 CA</h3>
+    <p>点击 <strong>初始化 CA</strong>。本地 CA 用于在你的设备上解析 Cursor 发出的 HTTPS 请求，其文件只保存在本机。系统要求授权时，按照应用显示的说明在终端中完成信任操作，然后返回应用点击 <strong>我已初始化，刷新</strong>。</p>
+    <h3>添加第一个模型</h3>
+    <p>点击 <strong>添加模型</strong>。推荐选择常用预设中的 <strong>青云聚汇</strong>，服务器地址填写 <code>https://api.qinggekeji.top</code>，再填入 API Key 与模型名称。详细字段说明见 <a href="../model-configuration/">模型配置</a>。</p>
+    <img class="shot" src="../assets/cursor-config.png" alt="Cursor 配置页面" />
+    <h3>运行连通性测试</h3>
+    <p>点击模型的 <strong>测试</strong>。测试成功后，该模型即可出现在 Cursor 的模型列表中。</p>
+    <h3>首次升级或配置后完全重启 Cursor</h3>
+    <p>首次升级 Cursor 或首次配置模型后，必须完全退出并重新启动一次 Cursor。仅关闭窗口不等于退出。</p>
+    <h3>新建对话</h3>
+    <p>Cursor 重启后新建一个对话，再从模型列表中选择你配置的模型。不要继续使用配置前已打开的对话，也不要选择 <strong>Auto</strong>。</p>
+
+    <h2 id="验证安装">验证安装</h2>
+    <ul>
+      <li>Cursor 配置页面不再显示 CA 初始化提示。</li>
+      <li>至少一个模型的连通性测试成功。</li>
+      <li>青云currsor小助手保持运行。</li>
+      <li>已完全退出并重新启动一次 Cursor。</li>
+      <li>已新建对话，而不是继续使用配置前打开的对话。</li>
+      <li>Cursor 模型列表中能看到配置的显示名称。</li>
+    </ul>
+    <p>如果其中任何一步失败，请前往 <a href="../faq/">常见问题</a>。</p>
+
+    <h2 id="更新">更新</h2>
+    <p>在应用设置中检查新版本，或直接访问 <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">GitHub Releases</a>。更新前无需删除现有模型配置。</p>
+    <p class="footer">本页内容改写自官方 Cursor Byok 安装指南，截图已改为本仓库静态资源。</p>
+  </div>
+</body>
+</html>

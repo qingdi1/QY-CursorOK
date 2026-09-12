@@ -6,6 +6,8 @@
 
 本应用基于 CursorOK 助手二改。推荐使用青云聚汇中转站：https://api.qinggekeji.top
 
+User guide: https://qingdi1.github.io/QY-CursorOK/
+
 </div>
 
 ![Connect 青云currsor小助手 to a wide range of model APIs](./images/en-brand-1.png)

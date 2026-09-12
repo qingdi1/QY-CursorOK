@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>常见问题 | 青云currsor小助手</title>
+  <link rel="icon" href="../assets/logo.svg" />
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="" />青云currsor小助手</a>
+      <nav class="nav">
+        <a href="../index.html">快速开始</a>
+        <a href="../installation/">安装指南</a>
+        <a href="../model-configuration/">模型配置</a>
+        <a href="../tab-service/">TAB 服务</a>
+        <a class="active" href="./index.html">常见问题</a>
+        <a href="https://github.com/qingdi1/QY-CursorOK/releases/latest">下载</a>
+      </nav>
+    </header>
+    <h1>常见问题</h1>
+    <p class="lead">以问答形式解答青云currsor小助手的配置、账号、模型和 TAB 补全问题。</p>
+
+    <h2>Q：首次升级或配置后，为什么 Cursor 提示“未登录”、看不到模型或出现 unexpected error？</h2>
+    <p>首次升级 Cursor 或首次配置模型后，Cursor 需要重新建立连接。请保持青云currsor小助手运行，完全退出 Cursor 后重新启动，再新建一个对话并手动选择你配置的模型。</p>
+
+    <h2>Q：切换到新版需要登录自己的 Cursor 账号吗？</h2>
+    <p>不需要。可以在没有 Cursor 账号的情况下使用自己的模型；不过建议登录任意账号，以便使用官方插件、MCP、Skills、代码库索引和官方模型。</p>
+
+    <h2>Q：旧版已经打开的对话可以继续使用吗？</h2>
+    <p>旧助手产生的对话无法直接续接，需要新开一个对话。新版产生的对话与 Cursor 官方同步，可以在本地模型和官方模型之间切换。</p>
+
+    <h2>Q：新版支持 Cursor 官方模型吗？</h2>
+    <p>支持。官方模型仍由 Cursor 官方服务处理，自己配置的模型则通过青云currsor小助手转发。</p>
+
+    <h2>Q：为什么选择 Auto 会提示额度或账号错误？</h2>
+    <p>Auto 只会使用 Cursor 官方模型，不会自动使用你配置的本地模型。账号没有官方额度时，请手动选择自己的模型。</p>
+
+    <h2>Q：Cursor 的插件、MCP、Skills 和代码库索引还能使用吗？</h2>
+    <p>可以。登录任意 Cursor 账号后可以继续使用这些官方功能。代码库索引使用 Cursor 官方索引服务，需要将 Cursor 升级到最新版。</p>
+
+    <h2>Q：语意搜索第一次使用为什么比较慢？</h2>
+    <p>首次调用语意搜索时，应用会自动下载 Embedding Model。下载完成后，后续搜索会直接使用本地模型。</p>
+
+    <h2>Q：TAB 补全在哪里设置？</h2>
+    <p>在 <strong>系统设置 → TAB 设置</strong> 中选择：</p>
+    <ul>
+      <li><strong>直连</strong>：连接当前 Cursor 账号对应的官方 TAB 服务（默认）。</li>
+      <li><strong>自定义</strong>：连接你自己额外部署的 TAB 补全服务。</li>
+    </ul>
+    <p>当前二改版本不再提供原作者公益 TAB 服务。模型对话推荐使用 <a href="https://api.qinggekeji.top">青云聚汇</a>。</p>
+
+    <h2>Q：为什么模型测试通过了，Agent 请求仍然失败？</h2>
+    <p>模型测试只验证基础连接。请检查上游是否支持工具调用、上下文窗口和最大输出 Token、协议与地址是否匹配，以及调用详情中的上游状态码。</p>
+
+    <h2>Q：本地 CA 是什么？初始化失败怎么办？</h2>
+    <p>本地 CA 用于解析 Cursor 发出的 HTTPS 请求，相关文件只保存在本机。进入 Cursor 配置，点击初始化 CA，按提示完成信任，然后点击“我已初始化，刷新”。如果状态没有更新，请完全退出并重新启动青云currsor小助手。</p>
+
+    <h2>Q：模型连通性测试失败怎么办？</h2>
+    <ul>
+      <li>认证错误：确认 API Key 有效，并且账户有权访问目标模型。</li>
+      <li>接口不存在：确认模型类型、请求协议和服务器地址匹配。</li>
+      <li>模型不存在：使用“获取模型”检查上游返回的模型标识。</li>
+      <li>参数错误：暂时移除自定义 Headers 和额外参数后再测。</li>
+      <li>连接超时：检查网络、系统代理和上游服务状态。</li>
+    </ul>
+
+    <h2>Q：还在使用旧版生成的 fake 账户怎么办？</h2>
+    <p>在 Cursor 中退出旧版 fake 账户，然后登录任意 Cursor 账号，或保持未登录状态使用自己的模型。</p>
+
+    <h2>Q：推荐使用哪个模型服务？</h2>
+    <p>推荐使用青云聚汇：<a href="https://api.qinggekeji.top">https://api.qinggekeji.top</a>。在模型预设中选择“青云聚汇”，填入控制台里的 API Key 即可。</p>
+
+    <h2>Q：遇到其他问题时，需要提供什么信息？</h2>
+    <p>请在 <a href="https://github.com/qingdi1/QY-CursorOK/issues">GitHub Issues</a> 提交问题，并附上操作系统、青云currsor小助手版本、模型类型、请求协议、已脱敏的服务地址、错误信息和复现步骤。请勿公开 API Key 或其他凭据。</p>
+    <p class="footer">本页内容改写自官方 Cursor Byok 常见问题，下载、反馈和中转站链接已改为本项目地址。</p>
+  </div>
+</body>
+</html>
