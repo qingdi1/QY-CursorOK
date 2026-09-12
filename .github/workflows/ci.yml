@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - qingyun
 
 permissions:
   contents: read
@@ -85,4 +86,4 @@ jobs:
           workspaces: ". -> target"
 
       - name: Run platform Clippy
-        run: cargo clippy --package cursor-byok-desktop --all-targets -- -D warnings
+        run: cargo clippy --package cursorok-desktop --all-targets -- -D warnings

@@ -23,10 +23,9 @@ use tauri_plugin_updater::UpdaterExt;
 mod replacement;
 
 #[cfg(target_os = "windows")]
-const PORTABLE_UPDATE_ENDPOINT: &str =
-    "https://github.com/leookun/cursor-byok/releases/latest/download/portable-latest.json";
+const PORTABLE_UPDATE_ENDPOINT: &str = "";
 #[cfg(any(target_os = "windows", test))]
-const WINDOWS_PAYLOAD_NAME: &str = "cursor-byok-desktop.exe";
+const WINDOWS_PAYLOAD_NAME: &str = "cursorok-desktop.exe";
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -135,6 +134,10 @@ pub(crate) async fn install_portable_update(
 
 #[cfg(target_os = "windows")]
 async fn portable_update(app: &AppHandle) -> Result<Option<tauri_plugin_updater::Update>, String> {
+    if PORTABLE_UPDATE_ENDPOINT.is_empty() {
+        let _ = app;
+        return Ok(None);
+    }
     let endpoint = PORTABLE_UPDATE_ENDPOINT
         .parse()
         .map_err(|error| format!("invalid portable update endpoint: {error}"))?;
@@ -192,7 +195,7 @@ fn ensure_target_writable(target: &Path) -> std::io::Result<()> {
         .parent()
         .ok_or_else(|| std::io::Error::other("application executable has no parent directory"))?;
     let probe = parent.join(format!(
-        ".cursor-byok-update-write-test-{}",
+        ".cursorok-update-write-test-{}",
         std::process::id()
     ));
     let mut file = OpenOptions::new()
@@ -237,7 +240,7 @@ fn extract_windows_payload(bytes: &[u8]) -> Result<Vec<u8>, String> {
 #[cfg(target_os = "windows")]
 fn stage_payload(target: &Path, payload: &[u8]) -> std::io::Result<PathBuf> {
     let directory = tempfile::Builder::new()
-        .prefix("cursor-byok-portable-update-")
+        .prefix("cursorok-portable-update-")
         .tempdir()?;
     let name = target
         .file_name()

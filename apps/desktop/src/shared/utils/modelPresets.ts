@@ -3,6 +3,7 @@ import deepseekIcon from "../assets/provider-icons/deepseek.svg";
 import huoshanIcon from "../assets/provider-icons/huoshan.png";
 import kimiIcon from "../assets/provider-icons/kimi.svg";
 import minimaxIcon from "../assets/provider-icons/minimax.svg";
+import qingyunIcon from "../assets/provider-icons/qingyun.svg";
 import zhipuIcon from "../assets/provider-icons/zhipu.svg";
 import { defaultCustomHeaders } from "./modelDefaults";
 
@@ -55,6 +56,21 @@ const openaiChat = (baseUrl: string): ModelPresetEndpoint => ({ baseUrl, useFull
 const openaiFullUrl = (url: string): ModelPresetEndpoint => ({ baseUrl: url, useFullUrl: true, openaiEndpoint: "/v1/chat/completions", customHeaders: null });
 
 export const modelPresets: ModelPreset[] = [
+  {
+    key: "qingyun",
+    name: "青云聚汇",
+    icon: qingyunIcon,
+    keyHint: "api.qinggekeji.top 控制台获取 API Key，兼容 OpenAI 与 Anthropic 协议",
+    endpoints: {
+      anthropic: anthropic("https://api.qinggekeji.top"),
+      openai: openaiChat("https://api.qinggekeji.top"),
+    },
+    models: [
+      entry("claude-sonnet-4-5", "Claude Sonnet 4.5", 200000, 64000),
+      entry("gpt-4.1", "GPT 4.1", 1047576, 32768),
+      entry("gemini-2.5-pro", "Gemini 2.5 Pro", 1048576, 65536),
+    ],
+  },
   {
     key: "zhipu",
     name: "智谱 GLM",

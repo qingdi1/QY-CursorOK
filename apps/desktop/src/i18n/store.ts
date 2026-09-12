@@ -8,7 +8,7 @@ type I18nSnapshot = {
   locale: Locale;
 };
 
-const storageKey = "cursor-byok.locale";
+const storageKey = "cursorok.locale";
 const listeners = new Set<() => void>();
 let initialized = false;
 let snapshot: I18nSnapshot = { preference: "system", locale: "en-US" };

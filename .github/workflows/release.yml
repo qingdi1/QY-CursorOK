@@ -142,7 +142,7 @@ jobs:
         with:
           projectPath: apps/desktop
           tagName: v__VERSION__
-          releaseName: Cursor BYOK v__VERSION__
+          releaseName: 青云currsor小助手 v__VERSION__
           releaseBody: ${{ contains(needs.prepare.outputs.version, '-') && 'Beta release. Download the installer for your platform from the assets below.' || 'Download the installer for your platform from the assets below.' }}
           releaseDraft: true
           prerelease: false
@@ -156,7 +156,7 @@ jobs:
           VERSION: ${{ needs.prepare.outputs.version }}
         run: |
           mkdir -p legacy-update
-          tar -czf "legacy-update/cursor-byok-${VERSION}-linux-amd64.tar.gz" -C target/release cursor-byok-desktop
+          tar -czf "legacy-update/cursorok-${VERSION}-linux-amd64.tar.gz" -C target/release cursorok-desktop
 
       - name: Package and sign legacy Windows updater asset
         if: matrix.platform == 'windows-x86_64'
@@ -167,14 +167,14 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         run: |
           New-Item -ItemType Directory -Force legacy-update | Out-Null
-          $asset = "legacy-update/cursor-byok-$env:VERSION-windows-amd64.zip"
-          Compress-Archive -LiteralPath target/release/cursor-byok-desktop.exe -DestinationPath $asset
+          $asset = "legacy-update/cursorok-$env:VERSION-windows-amd64.zip"
+          Compress-Archive -LiteralPath target/release/cursorok-desktop.exe -DestinationPath $asset
           Push-Location apps/desktop
           npm exec tauri signer sign -- "../../$asset"
           Pop-Location
           $entries = @(tar -tf $asset)
-          if ($entries.Count -ne 1 -or [System.IO.Path]::GetFileName($entries[0]) -ne 'cursor-byok-desktop.exe') {
-            throw "Windows updater archive must contain only cursor-byok-desktop.exe"
+          if ($entries.Count -ne 1 -or [System.IO.Path]::GetFileName($entries[0]) -ne 'cursorok-desktop.exe') {
+            throw "Windows updater archive must contain only cursorok-desktop.exe"
           }
           if (!(Test-Path "$asset.sig")) {
             throw "Windows updater archive signature was not generated"
@@ -193,7 +193,7 @@ jobs:
           if [[ "${{ matrix.platform }}" = "macos-x86_64" ]]; then
             legacy_platform=macos-amd64
           fi
-          cp "${archive}" "legacy-update/cursor-byok-${VERSION}-${legacy_platform}.tar.gz"
+          cp "${archive}" "legacy-update/cursorok-${VERSION}-${legacy_platform}.tar.gz"
 
       - uses: actions/upload-artifact@v4
         with:
@@ -224,13 +224,13 @@ jobs:
             --repository "${GITHUB_REPOSITORY}" \
             --assets-dir legacy-update \
             --output legacy-update/update.json \
-            --notes "Cursor BYOK v${VERSION}"
+            --notes "青云currsor小助手 v${VERSION}"
 
       - name: Generate signed Windows portable update manifest
         env:
           VERSION: ${{ needs.prepare.outputs.version }}
         run: |
-          asset="cursor-byok-${VERSION}-windows-amd64.zip"
+          asset="cursorok-${VERSION}-windows-amd64.zip"
           test -f "legacy-update/${asset}"
           test -f "legacy-update/${asset}.sig"
           node .github/scripts/generate-portable-update.mjs \

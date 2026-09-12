@@ -3,7 +3,7 @@
   "id": "dev.cursorbyok.examples.codex-auth",
   "name": "Codex",
   "version": "0.1.7",
-  "author": "@leookun",
+  "author": "cursorok",
   "minAppVersion": "0.1.0",
   "icon": "assets/codex.svg",
   "entry": "main.ts",

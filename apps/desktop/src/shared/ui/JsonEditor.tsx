@@ -87,7 +87,7 @@ function themeColor(styles: CSSStyleDeclaration, name: string, fallback: string)
 function applyEditorTheme(monaco: MonacoApi) {
   const rootStyles = getComputedStyle(document.documentElement);
   const light = document.documentElement.dataset.theme === "default-light";
-  monaco.editor.defineTheme("cursor-byok", {
+  monaco.editor.defineTheme("cursorok", {
     base: light ? "vs" : "vs-dark",
     inherit: true,
     rules: [],
@@ -100,7 +100,7 @@ function applyEditorTheme(monaco: MonacoApi) {
       "editor.selectionBackground": themeColor(rootStyles, "--vscode-editor-selectionBackground", light ? "#0069cc33" : "#49b0ff33"),
     },
   });
-  monaco.editor.setTheme("cursor-byok");
+  monaco.editor.setTheme("cursorok");
 }
 
 export function JsonEditor({ value, onChange, readOnly = false, autoFormat = true, detail = false, ariaLabel }: {
@@ -156,7 +156,7 @@ export function JsonEditor({ value, onChange, readOnly = false, autoFormat = tru
       const model = monaco.editor.createModel(initialValue, "json");
       const editor = monaco.editor.create(host, {
         model,
-        theme: "cursor-byok",
+        theme: "cursorok",
         ariaLabel: ariaLabelRef.current,
         readOnly: readOnlyRef.current,
         domReadOnly: readOnlyRef.current,

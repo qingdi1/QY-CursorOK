@@ -1,4 +1,4 @@
-//! Starts the Cursor BYOK server executable.
+//! Starts the 青云currsor小助手 server executable.
 use cursor_server::{App, Config, Result};
 use tracing_subscriber::prelude::*;
 

@@ -1,11 +1,11 @@
 [package]
-name = "cursor-byok-desktop"
+name = "cursorok-desktop"
 version = "0.1.7"
 edition = "2021"
 publish = false
 
 [lib]
-name = "cursor_byok_desktop"
+name = "cursorok_desktop"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

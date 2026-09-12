@@ -39,7 +39,7 @@ async function main() {
   const repository = required(options, "repository");
   const assetsDir = resolve(required(options, "assets-dir"));
   const output = resolve(required(options, "output"));
-  const releaseNotes = options.get("notes")?.trim() || `Cursor BYOK v${version}`;
+  const releaseNotes = options.get("notes")?.trim() || `青云currsor小助手 v${version}`;
 
   if (!/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(version)) {
     throw new Error(`invalid semantic version: ${version}`);
@@ -50,7 +50,7 @@ async function main() {
 
   const platforms = {};
   for (const [platform, suffix] of assetSpecs) {
-    const filename = `cursor-byok-${version}-${platform}${suffix}`;
+    const filename = `cursorok-${version}-${platform}${suffix}`;
     const path = join(assetsDir, filename);
     const info = await stat(path);
     if (!info.isFile()) throw new Error(`release asset is not a file: ${path}`);

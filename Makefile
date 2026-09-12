@@ -1,4 +1,4 @@
-LOCAL_TAURI_SIGNING_KEY := $(CURDIR)/.tauri/cursor-byok.local.key
+LOCAL_TAURI_SIGNING_KEY := $(CURDIR)/.tauri/cursorok.local.key
 
 .PHONY: check dev-web dev-server dev-desktop build-web build-server build-desktop build-docker
 
@@ -40,4 +40,4 @@ build-desktop: $(LOCAL_TAURI_SIGNING_KEY)
 endif
 
 build-docker:
-	docker build --tag cursor-byok:local .
+	docker build --tag cursorok:local .

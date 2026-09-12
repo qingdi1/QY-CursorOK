@@ -1171,35 +1171,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "52560adf09603e58c9a7ee1fe1dcb95a16927b17c127f0ac02d6e768a0e25bc1"
 
 [[package]]
-name = "cursor-byok-desktop"
-version = "0.1.7"
-dependencies = [
- "axum",
- "cursor-server",
- "libc",
- "rfd",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-autostart",
- "tauri-plugin-clipboard-manager",
- "tauri-plugin-opener",
- "tauri-plugin-process",
- "tauri-plugin-single-instance",
- "tauri-plugin-updater",
- "tempfile",
- "tokio",
- "tokio-util",
- "tracing",
- "tracing-appender",
- "tracing-subscriber",
- "url",
- "windows-sys 0.61.2",
- "zip",
-]
-
-[[package]]
 name = "cursor-server"
 version = "0.1.0"
 dependencies = [
@@ -1252,6 +1223,35 @@ dependencies = [
  "uuid",
  "windows-sys 0.61.2",
  "x509-parser",
+ "zip",
+]
+
+[[package]]
+name = "cursorok-desktop"
+version = "0.1.7"
+dependencies = [
+ "axum",
+ "cursor-server",
+ "libc",
+ "rfd",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-autostart",
+ "tauri-plugin-clipboard-manager",
+ "tauri-plugin-opener",
+ "tauri-plugin-process",
+ "tauri-plugin-single-instance",
+ "tauri-plugin-updater",
+ "tempfile",
+ "tokio",
+ "tokio-util",
+ "tracing",
+ "tracing-appender",
+ "tracing-subscriber",
+ "url",
+ "windows-sys 0.61.2",
  "zip",
 ]
 

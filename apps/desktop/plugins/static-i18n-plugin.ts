@@ -447,7 +447,7 @@ export function staticI18nPlugin(): Plugin {
     process.argv.includes("--scan") || process.env.STATIC_I18N_SCAN === "true"
 
   return {
-    name: "cursor-byok-static-i18n",
+    name: "cursorok-static-i18n",
     enforce: "pre",
     configResolved(config) {
       sourceRoot = path.join(config.root, "src")

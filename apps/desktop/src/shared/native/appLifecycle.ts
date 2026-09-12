@@ -57,26 +57,30 @@ type PortableUpdateInfo = {
 };
 
 export async function checkForUpdate(): Promise<AppUpdate | null> {
-  if (desktopPlatform() === "windows") {
-    const update = await invoke<PortableUpdateInfo | null>("check_portable_update");
+  try {
+    if (desktopPlatform() === "windows") {
+      const update = await invoke<PortableUpdateInfo | null>("check_portable_update");
+      if (!update) return null;
+      return {
+        version: update.version,
+        install: () => invoke("install_portable_update", { expectedVersion: update.version }),
+        close: async () => {},
+      };
+    }
+
+    const update: Update | null = await check();
     if (!update) return null;
     return {
       version: update.version,
-      install: () => invoke("install_portable_update", { expectedVersion: update.version }),
-      close: async () => {},
+      install: async () => {
+        await update.downloadAndInstall();
+        await relaunch();
+      },
+      close: () => update.close(),
     };
+  } catch {
+    return null;
   }
-
-  const update: Update | null = await check();
-  if (!update) return null;
-  return {
-    version: update.version,
-    install: async () => {
-      await update.downloadAndInstall();
-      await relaunch();
-    },
-    close: () => update.close(),
-  };
 }
 
 export async function installUpdate(update: AppUpdate): Promise<void> {
